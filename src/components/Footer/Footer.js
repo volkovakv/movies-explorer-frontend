@@ -9,13 +9,13 @@ function Footer() {
             <nav>
             <ul className="footer__links">
                 <li className="footer__links-item">
-                <a className="footer__link" href="https://practicum.yandex.ru/web/">Яндекс.Практикум</a>
+                <a className="footer__link" href="https://practicum.yandex.ru/web/" target="blank">Яндекс.Практикум</a>
                 </li>
                 <li className="footer__links-item">
-                <a className="footer__link" href="https://github.com/volkovakv">Github</a>
+                <a className="footer__link" href="https://github.com/volkovakv" target="blank">Github</a>
                 </li>
                 <li className="footer__links-item">
-                <a className="footer__link" href="https://vk.com/ksesh">VK</a>
+                <a className="footer__link" href="https://vk.com/ksesh" target="blank">VK</a>
                 </li>
             </ul>
             </nav>

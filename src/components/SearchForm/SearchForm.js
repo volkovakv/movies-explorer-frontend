@@ -1,5 +1,5 @@
 import './SearchForm.css';
-import find from '../../images/find.png';
+import find from '../../images/find.svg';
 
 function SearchForm() {
   return (

@@ -1,6 +1,6 @@
 import './Form.css';
 import { Link } from 'react-router-dom';
-import formLogo from '../../images/form-logo.png';
+import formLogo from '../../images/form-logo.svg';
 
 function Form({ header, submit, question, path, link, children }) {
   return (
