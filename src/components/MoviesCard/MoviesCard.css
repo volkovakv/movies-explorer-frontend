@@ -1,0 +1,111 @@
+.movie{
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+}
+  
+.movie__description {
+    display: grid;
+    grid-template-rows:  18px 13px;
+    gap: 9px 26px ;
+    grid-template-columns: 280px 44px;
+    grid-template-areas: "movie__title movie__button"  
+    "movie__duration movie__button";
+    margin: 14px 0 14px 14px;
+}
+  
+.movie__title {
+    max-width: 280px;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    grid-area: movie__title;
+}
+  
+.movie__button {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin-right: 14px;
+    border: none;
+    border-radius: 36px;
+    transition: opacity .2s linear;
+    grid-area: movie__button;
+}
+  
+.movie__button:hover {
+    opacity: 60%;
+    cursor: pointer;
+}
+  
+.movie__button_inactive {
+    background: #f9f9f9 url(../../images/save-inactive.svg) center no-repeat;
+}
+  
+.movie__button_active {
+   background: #f9f9f9 url(../../images/save-active.svg) center no-repeat;
+}
+  
+.movie__button_delete {
+    width: 30px;
+    height: 30px;
+    background: #f9f9f9 url(../../images/delete.svg) center no-repeat;
+}
+  
+.movie__duration {
+    margin: 0;
+    color: #a0a0a0;
+    font-size: 11px;
+    line-height: 13px;
+    grid-area: movie__duration;
+}
+
+.movie__image {
+    width: 364px;
+    height: 203px;
+}
+  
+@media screen and (max-width: 800px) { 
+    .movie__description {
+        grid-template-columns: 1fr 44px;
+        grid-template-rows: minmax(13px, auto) 14px;
+        gap: 9px 32px ;
+    }
+    
+    .movie__title {
+      max-width: 250px;
+    }
+
+    .movie__image {
+        width: 339px;
+        height: 190px;
+      }
+}
+  
+@media screen and (max-width: 540px) {   
+    .movie__description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .movie__title {
+        max-width: 210px;
+        margin-left: 14px;
+    }
+
+    .movie__button {
+        margin-right: 0;
+    }
+
+    .movie__duration {
+        margin-left: 14px;
+    }
+    
+    .movie__image {
+      width: 300px;
+      height: 168px;
+    }
+}
+  
