@@ -14,6 +14,16 @@
     box-sizing: border-box;
     list-style: none;
 }
+
+.movies__text-error {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  color: #8b8b8b;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 35px; 
+}
   
 .movies__button-more {
     max-width: 320px;
@@ -37,6 +47,16 @@
 .movies__button:hover {
     opacity: 60%;
     cursor: pointer;
+}
+
+.movies__text-error {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  color: #8b8b8b;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 35px;
 }
   
 @media all and (max-width: 900px) {

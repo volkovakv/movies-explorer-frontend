@@ -99,42 +99,58 @@
   display: inline-block;
   width: 36px;
   height: 20px;
-  filter: drop-shadow(0 2px 2px #e5e5e8);
-  cursor: pointer;
 }
 
-.search__checkbox {
-  display: none;
+.search__check input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
+/* Ползунок */
 .search__slider {
   position: absolute;
-  inset: 0;
-  background-color: #2be080;
-  border-radius: 16px;
-  transition: .6s;
-  transform: scale(-1, -1);
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
 }
 
-.search__slider::before {
+.search__slider:before {
   position: absolute;
-  content: '';
+  content: "";
   height: 16px;
   width: 16px;
-  left: 1px;
-  bottom: 1px;
-  border: 1px solid #2be080;
+  border: 1px solid #fff;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
   border-radius: 50%;
-  background-color: #fff;
+  left: 1px;
+  top: 1px;
 }
 
-.search__checkbox:checked + .search__slider {
-  background-color: #fff;
+input:checked + .search__slider {
+  border: 1px solid #2be080;
+  background-color: #2BE080;
 }
 
-.search__checkbox:checked + .search__slider::before {
+input:focus + .search__slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .search__slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
   transform: translateX(16px);
-  background-color: #2be080;
+  left: 0;
+  top: 0;
 }
 
 @media screen and (max-width: 900px) {
