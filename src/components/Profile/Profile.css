@@ -106,6 +106,8 @@
     line-height: 16px;
     text-decoration: none;
     transition: opacity .2s linear;
+    border: none;
+    background-color: transparent;
   }
   
   .profile__button-exit:hover {

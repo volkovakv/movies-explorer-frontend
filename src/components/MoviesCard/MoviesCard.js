@@ -2,33 +2,41 @@ import './MoviesCard.css';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-function MoviesCard({ movie }) {
-  const [saved, setSaved] = React.useState(false);
-
-  function handleSavedToogle() {
-    setSaved(!saved);
+const MoviesCard = ({ movie = {}, onSaveClick = false, onDeleteClick = false, saved = false, savedMoviesPage = false}) => {
+  const { pathname } = useLocation();
+  //cохранение фильма
+  function handleSaveClick() {
+    onSaveClick(movie)
   }
 
-  const { pathname } = useLocation();
+  //удаление фильма из сохраненных
+  function handleDeleteClick() {
+    onDeleteClick(movie)
+  }
+
+  //форматирование длительности фильма
+  function getMovieDuration(mins) {
+    return `${Math.floor(mins / 60)}ч ${mins % 60}м`;
+  }
 
   return (
     <li className="movie">
       <div className="movie__description">
-        <p className="movie__title">{movie.title}</p>
-        {pathname === '/saved-movies' ? (
-            <button type="button" className="movie__button movie__button_delete" />
-        ) : (
-            <button
-              type="button"
-              className={`movie__button movie__button${saved ? '_active' : '_inactive'}`}
-              onClick={handleSavedToogle}
-            />
-          )}
-        <p className="movie__duration">{movie.duration}</p>
+        <p className="movie__title">{movie.nameRU}</p>
+        {
+          !savedMoviesPage ?
+            <button onClick={saved ? handleDeleteClick : handleSaveClick} className={saved ? "movie__button movie__button_active" : "movie__button movie__button_inactive"}></button>
+            :
+            <button onClick={handleDeleteClick} className="movie__button movie__button_delete"></button>
+        }
+        <p className="movie__duration">{getMovieDuration(movie.duration)}</p>
       </div>
-      <img className="movie__image" src={movie.image} alt={movie.title}></img>
+      <a className="card__image-content" href={movie.trailerLink} target="blank">
+        <img className="movie__image" src={pathname === '/saved-movies' ? `${movie.image}` : `https://api.nomoreparties.co${movie.image.url}`} alt="К сожалению, изображение недоступно"></img>
+      </a>
     </li>
   );
 };
 
 export default MoviesCard;
+
